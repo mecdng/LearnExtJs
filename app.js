@@ -11,7 +11,7 @@
             layout: 'fit',
             items: [
                 {
-                    xtype: 'panel',
+                    xtype: 'userlist',
                     title: 'Users',
                     html: 'List of users will go here'
                 }

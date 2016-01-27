@@ -1,15 +1,22 @@
 ﻿Ext.define('AM.controller.Users', {
     extend: 'Ext.app.Controller',
-    init: function() {
+
+    views:[
+        'user.List',
+        'user.Edit'
+    ],
+
+    init: function () {
         console.log('Iniitialized Users! This happens before the Application launch function is called');
         this.control({
-            'viewport > panel': {
-                render:this.onPanelRendered
+            'userlist': {
+                itemdblclick:this.editUser
             }
         });
     },
 
-    onPanelRendered : function() {
-        console.log('This panel was rendered');
+    editUser : function(grid,record) {
+        var view = Ext.widget('useredit');
+        view.down('form').loadRecord(record);
     }
 })
